@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(color: Color.fromRGBO(253, 146, 139, 1)),
         ),
       ),
-      home: MyHomePage(),
+      home: SignUp(),
     );
   }
 }

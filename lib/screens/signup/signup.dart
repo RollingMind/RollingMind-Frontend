@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rollingmind_front/screens/signup/membership_checkbox.dart';
 
-class MyHomePage extends StatelessWidget {
+class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

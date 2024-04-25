@@ -23,10 +23,28 @@ class Login extends StatelessWidget {
                 style: TextStyle(
                     fontWeight: FontWeight.w500, fontSize: 14, color: darkGrey),
               ),
-              margin: const EdgeInsets.fromLTRB(46, 0, 0, 0),
+              margin: const EdgeInsets.only(left: 46),
             ),
             TextFieldArea('아이디', 35, 79, 35, 0),
-            TextFieldArea('비밀번호', 35, 35, 35, 0)
+            TextFieldArea('비밀번호', 35, 35, 35, 0),
+            Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(top: 35),
+                child: SizedBox(
+                    width: 260,
+                    height: 55,
+                    child: ElevatedButton(
+                      onPressed: null,
+                      child: Text(
+                        '로그인',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(pink)),
+                    )))
           ],
         ));
   }

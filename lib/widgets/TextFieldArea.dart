@@ -12,6 +12,7 @@ class TextFieldArea extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.fromLTRB(left, top, right, bottom),
       child: TextField(
+        style: TextStyle(height: 2),
         decoration: InputDecoration(
             enabledBorder:
                 UnderlineInputBorder(borderSide: BorderSide(color: lightGrey)),
@@ -22,8 +23,9 @@ class TextFieldArea extends StatelessWidget {
             hintStyle: TextStyle(color: darkGrey),
             labelStyle: TextStyle(
               color: pink,
-              fontSize: 12,
-            )),
+              fontSize: 15,
+            ),
+            prefix: Padding(padding: EdgeInsets.only(left: 11))),
       ),
     );
   }

@@ -19,7 +19,8 @@ class SnsButton extends StatelessWidget {
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(
                       Color((type == "kakao") ? 0xffFDE500 : 0xffF5F5F5)),
-                  padding: MaterialStatePropertyAll(EdgeInsets.only(left: 71))),
+                  padding: MaterialStatePropertyAll(
+                      EdgeInsets.only(left: (type == "kakao") ? 71 : 86))),
               child: Row(
                 children: [
                   Image(

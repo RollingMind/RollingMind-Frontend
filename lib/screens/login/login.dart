@@ -9,7 +9,8 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: BaseAppBar(AppBar(), '로그인', false, false, false),
-        body: Column(
+        body: SingleChildScrollView(
+            child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
@@ -26,7 +27,7 @@ class Login extends StatelessWidget {
               ),
               margin: const EdgeInsets.only(left: 46),
             ),
-            TextFieldArea('아이디', 35, 79, 35, 0),
+            TextFieldArea('아이디', 35, 63, 35, 0),
             TextFieldArea('비밀번호', 35, 35, 35, 0),
             Container(
                 alignment: Alignment.center,
@@ -75,14 +76,14 @@ class Login extends StatelessWidget {
                 )),
             Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 50),
+                margin: EdgeInsets.only(top: 40),
                 child: Image(
                   image: AssetImage('assets/bubble.png'),
                   width: 150,
                 )),
-            SnsButton('kakao', 12),
-            SnsButton('google', 32)
+            SnsButton('kakao', 3),
+            SnsButton('google', 20)
           ],
-        ));
+        )));
   }
 }

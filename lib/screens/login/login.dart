@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rollingmind_front/utilities/colors.dart';
-import 'package:rollingmind_front/widgets/BaseAppBar.dart';
-import 'package:rollingmind_front/widgets/login/SnsButton.dart';
-import 'package:rollingmind_front/widgets/login/TextFieldArea.dart';
+import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
+import 'package:rollingmind_front/widgets/login/sns_button_widget.dart';
+import 'package:rollingmind_front/widgets/login/text_field_widget.dart';
 
 class Login extends StatelessWidget {
   @override

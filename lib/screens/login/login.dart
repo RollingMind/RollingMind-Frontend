@@ -53,7 +53,8 @@ class Login extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                        onPressed: null,
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed("/find-id"),
                         child: Text(
                           '아이디 찾기',
                           style: TextStyle(fontSize: 13, color: darkGrey),

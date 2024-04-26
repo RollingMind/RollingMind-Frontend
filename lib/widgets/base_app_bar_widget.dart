@@ -10,11 +10,13 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          )),
+      title: Container(
+          child: Text(title,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              )),
+          padding: EdgeInsets.zero),
       centerTitle: true,
       toolbarHeight: 80,
       surfaceTintColor: Colors.white,
@@ -24,15 +26,15 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? IconButton(
               icon: Image.asset("assets/mingcute_left-line.png",
                   width: 30, height: 30),
-              onPressed: null,
-              padding: EdgeInsets.all(16),
+              onPressed: () => Navigator.pop(context),
+              padding: EdgeInsets.only(left: 16),
             )
           : (isList)
               ? IconButton(
                   icon: Image.asset("assets/option-line.png",
                       width: 30, height: 30),
                   onPressed: null,
-                  padding: EdgeInsets.all(16),
+                  padding: EdgeInsets.only(left: 16),
                 )
               : null,
       actions: [
@@ -41,7 +43,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: null,
             icon: Image.asset("assets/tabler_bell-filled.png",
                 width: 30, height: 30),
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.only(right: 16),
           )
       ],
     );

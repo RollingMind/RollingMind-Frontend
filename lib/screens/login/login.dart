@@ -67,7 +67,8 @@ class Login extends StatelessWidget {
                         )),
                     Text("|", style: TextStyle(color: lightGrey, fontSize: 14)),
                     TextButton(
-                        onPressed: null,
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed("/signup"),
                         child: Text(
                           '회원가입',
                           style: TextStyle(fontSize: 13, color: darkGrey),

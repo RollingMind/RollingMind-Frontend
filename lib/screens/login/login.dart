@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rollingmind_front/utilities/colors.dart';
 import 'package:rollingmind_front/widgets/BaseAppBar.dart';
+import 'package:rollingmind_front/widgets/SnsButton.dart';
 import 'package:rollingmind_front/widgets/TextFieldArea.dart';
 
 class Login extends StatelessWidget {
@@ -44,7 +45,43 @@ class Login extends StatelessWidget {
                       ),
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(pink)),
-                    )))
+                    ))),
+            Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        onPressed: null,
+                        child: Text(
+                          '아이디 찾기',
+                          style: TextStyle(fontSize: 13, color: darkGrey),
+                        )),
+                    Text("|", style: TextStyle(color: lightGrey, fontSize: 14)),
+                    TextButton(
+                        onPressed: null,
+                        child: Text(
+                          '비밀번호 찾기',
+                          style: TextStyle(fontSize: 13, color: darkGrey),
+                        )),
+                    Text("|", style: TextStyle(color: lightGrey, fontSize: 14)),
+                    TextButton(
+                        onPressed: null,
+                        child: Text(
+                          '회원가입',
+                          style: TextStyle(fontSize: 13, color: darkGrey),
+                        )),
+                  ],
+                )),
+            Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(top: 50),
+                child: Image(
+                  image: AssetImage('assets/bubble.png'),
+                  width: 150,
+                )),
+            SnsButton('kakao', 12),
+            SnsButton('google', 32)
           ],
         ));
   }

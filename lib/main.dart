@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rollingmind_front/screens/login/find_id.dart';
+import 'package:rollingmind_front/screens/login/find_pw.dart';
 import 'package:rollingmind_front/screens/login/login.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rollingmind_front/screens/signup/signup.dart';
@@ -27,7 +28,8 @@ class MainApp extends StatelessWidget {
       routes: {
         '/': (context) => Login(),
         '/signup': (context) => SignUp(),
-        '/find-id': (context) => FindId()
+        '/find-id': (context) => FindId(),
+        '/find-pw': (context) => FindPw(),
       },
       theme: ThemeData(
           appBarTheme: AppBarTheme(

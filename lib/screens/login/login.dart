@@ -61,7 +61,8 @@ class Login extends StatelessWidget {
                         )),
                     Text("|", style: TextStyle(color: lightGrey, fontSize: 14)),
                     TextButton(
-                        onPressed: null,
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed("/find-pw"),
                         child: Text(
                           '비밀번호 찾기',
                           style: TextStyle(fontSize: 13, color: darkGrey),

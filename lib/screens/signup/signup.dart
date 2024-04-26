@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:rollingmind_front/screens/signup/membership_checkbox.dart';
+import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 
 class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Container(
-          child: Text(
-            '회원가입',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-        ),
-        centerTitle: true,
-      ),
+      appBar: BaseAppBar(AppBar(), '회원가입', true, false, false),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,

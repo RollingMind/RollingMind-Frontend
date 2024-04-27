@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 
 class SnsButton extends StatelessWidget {
   String type;
-  double topValue;
-
-  SnsButton(this.type, this.topValue, {super.key});
+  SnsButton(this.type, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.only(top: topValue),
         child: SizedBox(
             width: 320,
             height: 55,

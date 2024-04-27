@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:rollingmind_front/utilities/colors.dart';
+import 'package:get/get.dart';
+import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
-import 'package:rollingmind_front/widgets/login/sns_button_widget.dart';
+import 'package:rollingmind_front/widgets/sns_button_widget.dart';
 import 'package:rollingmind_front/widgets/login/text_field_widget.dart';
 
-class Login extends StatelessWidget {
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: BaseAppBar(AppBar(), '로그인', false, false, false),
-        body: SingleChildScrollView(
-            child: Column(
+      appBar: BaseAppBar(AppBar(), '로그인', false, false, false),
+      body: SingleChildScrollView(child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
@@ -23,7 +25,7 @@ class Login extends StatelessWidget {
               child: Text(
                 '롤링마인드는 로그인이 필요한 서비스 입니다.',
                 style: TextStyle(
-                    fontWeight: FontWeight.w500, fontSize: 14, color: darkGrey),
+                    fontWeight: FontWeight.w500, fontSize: 14, color: AppColor.darkGrey),
               ),
               margin: const EdgeInsets.only(left: 46),
             ),
@@ -45,7 +47,7 @@ class Login extends StatelessWidget {
                             fontWeight: FontWeight.w900),
                       ),
                       style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(pink)),
+                          backgroundColor: MaterialStateProperty.all(AppColor.pink)),
                     ))),
             Container(
                 margin: EdgeInsets.only(top: 10),
@@ -53,27 +55,24 @@ class Login extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                        onPressed: () =>
-                            Navigator.pushNamed(context, "/find-id"),
+                        onPressed: null,
                         child: Text(
                           '아이디 찾기',
-                          style: TextStyle(fontSize: 13, color: darkGrey),
+                          style: TextStyle(fontSize: 13, color: AppColor.darkGrey),
                         )),
-                    Text("|", style: TextStyle(color: lightGrey, fontSize: 14)),
+                    Text("|", style: TextStyle(color: AppColor.lightGrey, fontSize: 14)),
                     TextButton(
-                        onPressed: () =>
-                            Navigator.pushNamed(context, "/find-pw"),
+                        onPressed: () => null,
                         child: Text(
                           '비밀번호 찾기',
-                          style: TextStyle(fontSize: 13, color: darkGrey),
+                          style: TextStyle(fontSize: 13, color: AppColor.darkGrey),
                         )),
-                    Text("|", style: TextStyle(color: lightGrey, fontSize: 14)),
+                    Text("|", style: TextStyle(color: AppColor.lightGrey, fontSize: 14)),
                     TextButton(
-                        onPressed: () =>
-                            Navigator.pushNamed(context, "/signup"),
+                        onPressed: () => Get.toNamed("/sign_up"),
                         child: Text(
                           '회원가입',
-                          style: TextStyle(fontSize: 13, color: darkGrey),
+                          style: TextStyle(fontSize: 13, color: AppColor.darkGrey),
                         )),
                   ],
                 )),
@@ -87,6 +86,7 @@ class Login extends StatelessWidget {
             SnsButton('kakao', 3),
             SnsButton('google', 20)
           ],
-        )));
+        ))
+    );
   }
 }

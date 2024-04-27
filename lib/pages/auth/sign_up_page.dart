@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:rollingmind_front/screens/signup/membership_checkbox.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 
-class SignUp extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseAppBar(AppBar(), '회원가입', true, false, false),
-      body: Column(
+      body: SingleChildScrollView(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -46,7 +46,7 @@ class SignUp extends StatelessWidget {
             ),
           ),
         ],
-      ),
+      ),),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rollingmind_front/utilities/colors.dart';
+import 'package:rollingmind_front/utils/colors.dart';
 
 class TextFieldArea extends StatelessWidget {
   String labelText;
@@ -15,14 +15,14 @@ class TextFieldArea extends StatelessWidget {
         style: TextStyle(height: 2),
         decoration: InputDecoration(
             enabledBorder:
-                UnderlineInputBorder(borderSide: BorderSide(color: lightGrey)),
+                UnderlineInputBorder(borderSide: BorderSide(color: AppColor.lightGrey)),
             contentPadding: EdgeInsets.fromLTRB(0, 8, 0, 2),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             labelText: labelText,
             hintText: labelText,
-            hintStyle: TextStyle(color: darkGrey),
+            hintStyle: TextStyle(color: AppColor.darkGrey),
             labelStyle: TextStyle(
-              color: pink,
+              color: AppColor.pink,
               fontSize: 15,
             ),
             prefix: Padding(padding: EdgeInsets.only(left: 11))),

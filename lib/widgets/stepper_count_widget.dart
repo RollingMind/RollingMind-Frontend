@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rollingmind_front/utilities/colors.dart';
+import 'package:rollingmind_front/utils/colors.dart';
 
 class StepperState extends StatefulWidget {
   List<Widget> widgetList;
@@ -64,11 +64,11 @@ class StepperWidget extends State<StepperState> {
         children: [
           if (isFinally)
             _buildButton(
-                '로그인', () => Navigator.pushNamed(context, "/"), pink, 306, 0)
+                '로그인', () => Navigator.pushNamed(context, "/"), AppColor.pink, 306, 0)
           else if (isActiveBack)
             _buildButton('이전', details.onStepCancel, Colors.white, 110, 108),
           if (isActiveNext && !isFinally)
-            _buildButton('다음', details.onStepContinue, pink, 110,
+            _buildButton('다음', details.onStepContinue, AppColor.pink, 110,
                 (currentStep == 0) ? 234 : 16),
         ],
       ),
@@ -87,9 +87,9 @@ class StepperWidget extends State<StepperState> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            side: BorderSide(color: pink),
+            side: BorderSide(color: AppColor.pink),
             backgroundColor: buttonColor,
-            foregroundColor: buttonColor == Colors.white ? pink : Colors.white,
+            foregroundColor: buttonColor == Colors.white ? AppColor.pink : Colors.white,
           ),
           onPressed: onPressed,
           child: Text(text),
@@ -108,12 +108,12 @@ class StepperWidget extends State<StepperState> {
         onStepTapped: onStepTapped,
         controlsBuilder: controlsBuilder,
         elevation: 0,
+        physics: NeverScrollableScrollPhysics(),
         steps: [
           for (int i = 0; i < widgetList.length; i++)
             Step(
                 title: Text(''),
-                content: Container(
-                    alignment: Alignment.topLeft, child: widgetList[i]),
+                content: Column(children: [widgetList[i]]),
                 isActive: currentStep >= i)
         ]);
   }

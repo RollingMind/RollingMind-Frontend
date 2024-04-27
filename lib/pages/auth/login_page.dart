@@ -156,11 +156,15 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 3
               ),
-              SnsButton('kakao'),
+              SnsButton(
+                type: 'kakao'
+              ),
               const SizedBox(
                 height: 20
               ),
-              SnsButton('google')
+              SnsButton(
+                type: 'google'
+              )
             ]
           ),
         ),

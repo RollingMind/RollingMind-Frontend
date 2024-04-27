@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rollingmind_front/screens/signup/membership_checkbox.dart';
+import 'package:rollingmind_front/widgets/membership_checkbox.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 
 class SignUpPage extends StatelessWidget {

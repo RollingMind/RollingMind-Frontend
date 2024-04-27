@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
-  AppBar appBar;
-  String title;
-  bool isBack, isList, isAlarm;
-  BaseAppBar(
+  final AppBar appBar;
+  final String title;
+  final bool isBack, isList, isAlarm;
+  const BaseAppBar(
     this.appBar,
     this.title,
     this.isBack,
@@ -24,8 +24,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
             fontSize: 20,
             fontWeight: FontWeight.bold,
           )
-        ),
-        padding: EdgeInsets.zero
+        )
       ),
       centerTitle: true,
       toolbarHeight: 80,

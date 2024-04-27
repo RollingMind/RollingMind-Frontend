@@ -26,7 +26,7 @@ class FindId extends StatelessWidget {
                     margin: EdgeInsets.only(top: 55),
                     child: TextField(
                       decoration: InputDecoration(
-                        fillColor: AppColor.grey,
+                        fillColor: AppColor.lightGrey,
                         filled: true,
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide.none,

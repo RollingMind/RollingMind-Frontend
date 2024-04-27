@@ -54,7 +54,7 @@ class Login extends StatelessWidget {
                   children: [
                     TextButton(
                         onPressed: () =>
-                            Navigator.of(context).pushNamed("/find-id"),
+                            Navigator.pushNamed(context, "/find-id"),
                         child: Text(
                           '아이디 찾기',
                           style: TextStyle(fontSize: 13, color: darkGrey),
@@ -62,7 +62,7 @@ class Login extends StatelessWidget {
                     Text("|", style: TextStyle(color: lightGrey, fontSize: 14)),
                     TextButton(
                         onPressed: () =>
-                            Navigator.of(context).pushNamed("/find-pw"),
+                            Navigator.pushNamed(context, "/find-pw"),
                         child: Text(
                           '비밀번호 찾기',
                           style: TextStyle(fontSize: 13, color: darkGrey),
@@ -70,7 +70,7 @@ class Login extends StatelessWidget {
                     Text("|", style: TextStyle(color: lightGrey, fontSize: 14)),
                     TextButton(
                         onPressed: () =>
-                            Navigator.of(context).pushNamed("/signup"),
+                            Navigator.pushNamed(context, "/signup"),
                         child: Text(
                           '회원가입',
                           style: TextStyle(fontSize: 13, color: darkGrey),

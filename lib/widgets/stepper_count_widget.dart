@@ -112,7 +112,8 @@ class StepperWidget extends State<StepperState> {
           for (int i = 0; i < widgetList.length; i++)
             Step(
                 title: Text(''),
-                content: widgetList[i],
+                content: Container(
+                    alignment: Alignment.topLeft, child: widgetList[i]),
                 isActive: currentStep >= i)
         ]);
   }

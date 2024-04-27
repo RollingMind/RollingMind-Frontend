@@ -6,7 +6,7 @@ import 'package:rollingmind_front/widgets/sns_button_widget.dart';
 import 'package:rollingmind_front/widgets/login/text_field_widget.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {

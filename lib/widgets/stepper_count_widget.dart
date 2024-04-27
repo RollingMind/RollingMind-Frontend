@@ -4,7 +4,7 @@ import 'package:rollingmind_front/utils/colors.dart';
 class StepperState extends StatefulWidget {
   List<Widget> widgetList;
 
-  StepperState(this.widgetList);
+  StepperState(this.widgetList, {super.key});
 
   @override
   StepperWidget createState() => StepperWidget(widgetList);
@@ -56,7 +56,7 @@ class StepperWidget extends State<StepperState> {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double bottomMargin = screenHeight - 230;
 
-    return Container(
+    return SizedBox(
       height: bottomMargin,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

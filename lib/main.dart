@@ -27,6 +27,9 @@ class MyApp extends StatelessWidget {
       title: '롤링마인드',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          foregroundColor: AppColor.pink
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: AppColor.pink),
         useMaterial3: true,
         fontFamily: "Inter",

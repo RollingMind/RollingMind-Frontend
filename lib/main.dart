@@ -5,6 +5,7 @@ import 'package:rollingmind_front/screens/login/find_pw.dart';
 import 'package:rollingmind_front/screens/login/login.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rollingmind_front/screens/signup/signup.dart';
+import 'package:rollingmind_front/utilities/colors.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -33,8 +34,9 @@ class MainApp extends StatelessWidget {
       },
       theme: ThemeData(
           appBarTheme: AppBarTheme(
-        titleTextStyle: TextStyle(color: Color.fromRGBO(253, 146, 139, 1)),
-      )),
+            titleTextStyle: TextStyle(color: pink),
+          ),
+          colorScheme: ColorScheme.light(primary: pink)),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   AppBar appBar;
@@ -26,7 +27,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? IconButton(
               icon: Image.asset("assets/mingcute_left-line.png",
                   width: 30, height: 30),
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Get.offNamed("/"),
               padding: EdgeInsets.only(left: 16),
             )
           : (isList)

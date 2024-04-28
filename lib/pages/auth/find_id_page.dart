@@ -30,6 +30,7 @@ class FindIdPage extends StatelessWidget {
         marginTopControllerButton: 190.0,
         addContinueStepFunction: saveData,
         widgetList: [
+          // Step 1
           Container(
             margin: EdgeInsets.only(left: 16),
             alignment: Alignment.centerLeft,
@@ -102,6 +103,7 @@ class FindIdPage extends StatelessWidget {
               ]
             )
           ),
+          // Step 2
           Container(
             margin: EdgeInsets.only(left: 16),
             alignment: Alignment.centerLeft,
@@ -206,6 +208,7 @@ class FindIdPage extends StatelessWidget {
               ]
             )
           ),
+          // Step 3
           Container(
             margin: EdgeInsets.only(left: 16),
             alignment: Alignment.centerLeft,

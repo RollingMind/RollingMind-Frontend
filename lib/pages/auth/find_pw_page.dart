@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
+import 'package:rollingmind_front/widgets/password_text_field_widget.dart';
 import 'package:rollingmind_front/widgets/stepper_count_widget.dart';
 
 List<GlobalKey<FormState>> formKeys = [
@@ -22,9 +23,10 @@ class FindPwPage extends StatelessWidget {
       appBar: BaseAppBar(AppBar(), '비밀번호 찾기', true, false, false),
       body: StepperState(
         formKeys: formKeys,
-        marginTopControllerButton: 190.0,
+        marginTopControllerButton: 117.0,
         addContinueStepFunction: saveData,
         widgetList: [
+          // Step 1
           Container(
             margin: EdgeInsets.only(left: 16),
             alignment: Alignment.centerLeft,
@@ -91,6 +93,67 @@ class FindPwPage extends StatelessWidget {
               ]
             )
           ),
+          // Step 2
+          Container(
+            margin: EdgeInsets.only(left: 16),
+            alignment: Alignment.centerLeft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  '반갑습니다!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20
+                  ),
+                ),
+                const Row(
+                  children: [
+                    Text(
+                      'mypul1099',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                        color: AppColor.pink
+                      ),
+                    ),
+                    Text(
+                      '님!',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20
+                      ),
+                    )
+                  ],
+                ),
+                const Text(
+                  '앱로그인에 사용할 새로운 비밀번호를 입력해주세요.',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color: AppColor.darkGrey8A
+                  )
+                ),
+                const SizedBox(
+                  height: 56,
+                ),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(5, 0, 0, 4),
+                  child: Text(
+                    '비밀번호',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                PasswordField(formKey: formKeys[1])
+              ]
+            )
+          )
         ]
       )
     );

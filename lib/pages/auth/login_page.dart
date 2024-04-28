@@ -98,8 +98,8 @@ class LoginPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                const TextButton(
-                  onPressed: null,
+                TextButton(
+                  onPressed: () => Get.toNamed("/find_id"),
                   child: Text(
                     '아이디 찾기',
                     style: TextStyle(

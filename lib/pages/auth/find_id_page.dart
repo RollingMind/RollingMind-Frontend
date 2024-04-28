@@ -3,7 +3,7 @@ import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 import 'package:rollingmind_front/widgets/stepper_count_widget.dart';
 
-class FindId extends StatelessWidget {
+class FindIdPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

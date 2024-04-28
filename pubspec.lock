@@ -279,10 +279,7 @@ packages:
       sha256: "087ce49c3f0dc39180befefc60fdb4acd8f8620e5682fe2476afd0b3688bb4af"
       url: "https://pub.dev"
     source: hosted
-<<<<<<< HEAD
     version: "1.9.0"
-=======
-    version: "1.8.3"
   path_provider_linux:
     dependency: transitive
     description:
@@ -307,7 +304,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1"
->>>>>>> 9ae6cab071849027145ad8a04e847fc0f757db5f
   petitparser:
     dependency: transitive
     description:
@@ -488,10 +484,15 @@ packages:
       sha256: b3d56ff4341b8f182b96aceb2fa20e3dcb336b9f867bc0eafc0de10f1048e957
       url: "https://pub.dev"
     source: hosted
-<<<<<<< HEAD
     version: "13.0.0"
-=======
-    version: "0.3.0"
+  web:
+    dependency: transitive
+    description:
+      name: web
+      sha256: "4188706108906f002b3a293509234588823c8c979dc83304e229ff400c996b05"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.2"
   win32:
     dependency: transitive
     description:
@@ -508,7 +509,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
->>>>>>> 9ae6cab071849027145ad8a04e847fc0f757db5f
   xml:
     dependency: transitive
     description:

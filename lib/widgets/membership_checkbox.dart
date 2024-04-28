@@ -16,29 +16,28 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Row(
-          children: [
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 10.0),
-              padding: EdgeInsets.all(10.0),
-              child: Checkbox(
-                value: chAll,
-                activeColor: Color.fromRGBO(253, 146, 139, 1),
-                onChanged: (val) {
-                  setState(() {
-                    chAll = val!;
-                    ch1 = val;
-                    ch2 = val;
-                    ch3 = val;
-                  });
-                },
+        Padding(
+          padding: EdgeInsets.only(left: 46.0),
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(10.0),
+                child: Checkbox(
+                  value: chAll,
+                  activeColor: Color.fromRGBO(253, 146, 139, 1),
+                  onChanged: (val) {
+                    setState(() {
+                      chAll = val!;
+                      ch1 = val;
+                      ch2 = val;
+                      ch3 = val;
+                    });
+                  },
+                ),
               ),
-            ),
-            SizedBox(
-              width: 10.0,
-            ),
-            Text('전체 약관 동의'),
-          ],
+              Text('전체 약관 동의'),
+            ],
+          ),
         ),
         Container(
           height: 2,
@@ -48,7 +47,7 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(vertical: 10.0),
+          margin: EdgeInsets.all(46.0),
           padding: EdgeInsets.all(10.0),
           child: Column(
             children: [

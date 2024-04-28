@@ -73,23 +73,23 @@ class LoginPage extends StatelessWidget {
                     // Get.toNamed("/home");
                   },
                   child: SizedBox(
-                  width: 260,
-                  height: 55,
-                  child: ElevatedButton(
-                    onPressed: null,
-                    style: ElevatedButton.styleFrom(
-                      disabledBackgroundColor: AppColor.pink,
-                    ),
-                    child: Text(
-                      '로그인',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900
+                    width: 260,
+                    height: 55,
+                    child: ElevatedButton(
+                      onPressed: null,
+                      style: ElevatedButton.styleFrom(
+                        disabledBackgroundColor: AppColor.pink,
                       ),
-                    ),
-                  )
-                ),
+                      child: Text(
+                        '로그인',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900
+                        ),
+                      ),
+                    )
+                  ),
                 )
               ),
               const SizedBox(

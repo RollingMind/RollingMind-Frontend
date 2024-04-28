@@ -4,16 +4,15 @@ import 'package:rollingmind_front/utils/colors.dart';
 class StepperState extends StatefulWidget {
   final List<Widget> widgetList;
   final double marginTopControllerButton;
-  List<GlobalKey<FormState>> formKeys = [
-    GlobalKey<FormState>(),
-    GlobalKey<FormState>()
-  ];
+  final Function addContinueStepFunction;
+  List<GlobalKey<FormState>> formKeys = [];
 
   StepperState({
     Key? key,
     required this.formKeys,
     required this.marginTopControllerButton,
     required this.widgetList,
+    required this.addContinueStepFunction
   }) : super(key: key);
 
   @override
@@ -21,12 +20,14 @@ class StepperState extends StatefulWidget {
     formKeys: formKeys,
     marginTopControllerButton: marginTopControllerButton,
     widgetList: widgetList,
+    addContinueStepFunction: addContinueStepFunction
   );
 }
 
 class StepperWidget extends State<StepperState> {
   final List<Widget> widgetList;
   final double marginTopControllerButton;
+  final Function addContinueStepFunction;
 
   List<GlobalKey<FormState>> formKeys = [
     GlobalKey<FormState>(),
@@ -40,7 +41,8 @@ class StepperWidget extends State<StepperState> {
     Key? key,
     required this.formKeys,
     required this.marginTopControllerButton,
-    required this.widgetList
+    required this.widgetList,
+    required this.addContinueStepFunction
   });
 
   init() {
@@ -60,6 +62,7 @@ class StepperWidget extends State<StepperState> {
         isActiveBack = false;
         currentStep = 0;
       } else {
+        addContinueStepFunction();
         currentStep += 1;
       }
     });

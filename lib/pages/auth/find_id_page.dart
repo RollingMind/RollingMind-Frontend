@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 import 'package:rollingmind_front/widgets/stepper_count_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:validators/validators.dart';
 
 List<GlobalKey<FormState>> formKeys = [
@@ -10,6 +11,15 @@ List<GlobalKey<FormState>> formKeys = [
 ];
 
 class FindIdPage extends StatelessWidget {
+
+  final _controller = TextEditingController();
+
+  saveData() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setString('email', _controller.text);
+    debugPrint("${_controller.text}");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +27,7 @@ class FindIdPage extends StatelessWidget {
       body: StepperState(
         formKeys: formKeys,
         marginTopControllerButton: 190.0,
+        addContinueStepFunction: saveData,
         widgetList: [
           Container(
             margin: EdgeInsets.only(left: 16),
@@ -61,6 +72,7 @@ class FindIdPage extends StatelessWidget {
                     autovalidateMode: AutovalidateMode.always,
                     key: formKeys[0],
                     child: TextFormField(
+                      controller: _controller,
                       validator: (String? value) {
                         if(value?.isEmpty ?? true) {
                           return '빈칸입니다. 이메일을 입력해주세요.';

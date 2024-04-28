@@ -18,19 +18,21 @@ class StepperState extends StatefulWidget {
 
   @override
   StepperWidget createState() => StepperWidget(
-    formKeys: formKeys,
-    marginTopControllerButton: marginTopControllerButton,
-    widgetList: widgetList,
-  );
+        formKeys: formKeys,
+        marginTopControllerButton: marginTopControllerButton,
+        widgetList: widgetList,
+      );
 }
 
 class StepperWidget extends State<StepperState> {
   final List<Widget> widgetList;
   final double marginTopControllerButton;
+  
   List<GlobalKey<FormState>> formKeys = [
     GlobalKey<FormState>(),
     GlobalKey<FormState>()
   ];
+
   int currentStep = 0;
   bool isActiveBack = false, isActiveNext = true, isFinally = false;
 
@@ -50,15 +52,18 @@ class StepperWidget extends State<StepperState> {
   // 다음 버튼을 누를 때
   continueStep() {
     init();
+
     // 유효성 검사
     setState(() {
-      if (currentStep < widgetList.length - 1 && !(formKeys[currentStep].currentState?.validate() ?? false)) {
+      if (currentStep < widgetList.length - 1 &&
+          !(formKeys[currentStep].currentState?.validate() ?? false)) {
         isActiveBack = false;
         currentStep = 0;
       } else {
         currentStep += 1;
       }
     });
+
     if (currentStep >= widgetList.length - 1) isFinally = true;
   }
 
@@ -77,6 +82,11 @@ class StepperWidget extends State<StepperState> {
   onStepTapped(int value) {
     init();
     setState(() {
+      // 현재 탭보다 더 큰 수의 탭으로 이동 불가 (큰 수의 탭은 무조건 다음 버튼으로만 이동 가능)
+      if (currentStep < value) {
+        if (currentStep == 0) isActiveBack = false;
+        return;
+      }
       currentStep = value;
       if (currentStep == 0) isActiveBack = false;
       if (currentStep >= widgetList.length - 1) isFinally = true;
@@ -96,7 +106,7 @@ class StepperWidget extends State<StepperState> {
               '로그인',
               () => Navigator.pushNamed(context, "/"),
               AppColor.pink,
-              306, 
+              306,
               0
             )
           else if (isActiveBack)
@@ -121,8 +131,13 @@ class StepperWidget extends State<StepperState> {
   }
 
   // 컨트롤 버튼 UI
-  Widget _buildButton(String text, VoidCallback onPressed, Color buttonColor,
-      double width, double left) {
+  Widget _buildButton(
+    String text,
+    VoidCallback onPressed,
+    Color buttonColor,
+    double width,
+    double left
+  ) {
     return SingleChildScrollView(
       child: Container(
         width: width,
@@ -210,10 +225,9 @@ class StepperWidget extends State<StepperState> {
       steps: [
         for (int i = 0; i < widgetList.length; i++)
           Step(
-            title: Text(''),
-            content: Column(children: [widgetList[i]]),
-            isActive: currentStep == i
-          ),
+              title: Text(''),
+              content: Column(children: [widgetList[i]]),
+              isActive: currentStep == i),
       ]
     );
   }

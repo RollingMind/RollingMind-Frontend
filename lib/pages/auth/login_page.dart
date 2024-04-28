@@ -5,7 +5,7 @@ import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/utils/response.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 import 'package:rollingmind_front/widgets/login_text_field_widget.dart';
-import 'package:rollingmind_front/widgets/sns_button_widget.dart';
+import 'package:rollingmind_front/widgets/login_sns_button_widget.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});

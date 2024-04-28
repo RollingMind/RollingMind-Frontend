@@ -19,13 +19,13 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
       children: [
         Container(
           margin: EdgeInsets.only(bottom: 39.0),
-          padding: EdgeInsets.only(left: 46.0),
+          padding: EdgeInsets.only(left: 42.0, right: 3.0),
           child: Row(
             children: [
               Container(
-                padding: EdgeInsets.all(10.0),
                 child: Checkbox(
                   value: chAll,
+                  side: BorderSide(color: Color.fromRGBO(253, 146, 139, 1)),
                   activeColor: Color.fromRGBO(253, 146, 139, 1),
                   onChanged: (val) {
                     setState(() {
@@ -37,7 +37,7 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
                   },
                 ),
               ),
-              Text('전체 약관 동의'),
+              Text('전체 약관 동의', style: TextStyle(fontSize: 15),),
             ],
           ),
         ),
@@ -49,8 +49,8 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
           ),
         ),
         Container(
-          margin: EdgeInsets.all(46.0),
-          padding: EdgeInsets.all(10.0),
+          margin: EdgeInsets.all(42.0),
+          padding: EdgeInsets.only(right: 3.0),
           child: Column(
             children: [
               Container(
@@ -59,6 +59,7 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
                   children: [
                     Checkbox(
                       value: ch1,
+                      side: BorderSide(color: Color.fromRGBO(253, 146, 139, 1)),
                       activeColor: Color.fromRGBO(253, 146, 139, 1),
                       onChanged: (val) {
                         setState(() {
@@ -66,19 +67,18 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
                         });
                       },
                     ),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text('[필수] 개인정보 수집 및 이용동의'),
+                    Text('[필수] 개인정보 수집 및 이용동의', style: TextStyle(fontSize: 15),),
                   ],
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 42.0),
+                padding: EdgeInsets.only(right: 3.0),
                 child: Row(
                   children: [
                     Checkbox(
                       value: ch2,
+                      side: BorderSide(color: Color.fromRGBO(253, 146, 139, 1)),
                       activeColor: Color.fromRGBO(253, 146, 139, 1),
                       onChanged: (val) {
                         setState(() {
@@ -86,28 +86,24 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
                         });
                       },
                     ),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text('[필수] 이용약관 동의'),
+                    Text('[필수] 이용약관 동의', style: TextStyle(fontSize: 15)),
                   ],
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 42.0),
+                padding: EdgeInsets.only(right: 3.0),
                 child: Row(
                   children: [
                     Checkbox(
                       value: ch3,
+                      side: BorderSide(color: Color.fromRGBO(253, 146, 139, 1)),
                       activeColor: Color.fromRGBO(253, 146, 139, 1),
                       onChanged: (val) {
                         setState(() {
                           ch3 = val!;
                         });
                       },
-                    ),
-                    SizedBox(
-                      width: 10.0,
                     ),
                     Text('[선택] 이벤트성 정보 수신 동의'),
                   ],

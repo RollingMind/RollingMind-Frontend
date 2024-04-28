@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rollingmind_front/utils/colors.dart';
-import 'package:rollingmind_front/utils/regex.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 import 'package:rollingmind_front/widgets/stepper_count_widget.dart';
+import 'package:validators/validators.dart';
 
 List<GlobalKey<FormState>> formKeys = [
   GlobalKey<FormState>(),
@@ -10,7 +10,6 @@ List<GlobalKey<FormState>> formKeys = [
 ];
 
 class FindIdPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,71 +35,59 @@ class FindIdPage extends StatelessWidget {
                   '회원가입 할 때 사용된 이메일을 입력해주세요.',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color: AppColor.darkGrey8A
+                  )
+                ),
+                const SizedBox(
+                  height: 55,
+                ),
+                const Text(
+                  '이메일',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
                     fontSize: 14
+                  ),
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                Form(
+                  autovalidateMode: AutovalidateMode.always,
+                  key: formKeys[0],
+                  child: TextFormField(
+                    validator: (String? value) {
+                      if(value?.isEmpty ?? true) {
+                        return '빈칸입니다. 이메일을 입력해주세요.';
+                      } else if(!isEmail(value!)) { 
+                        return '이메일을 확인해주세요.';
+                      }
+                    },
+                    decoration: InputDecoration(
+                      fillColor: AppColor.grey01F0,
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      helperText: '*입력하신 이메일은 본인 확인의 용도 외에는\n사용되지 않습니다.',
+                      helperStyle: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                        color: AppColor.green
+                      ),
+                      contentPadding: EdgeInsets.all(13),
+                    ),
                   )
                 )
               ]
             )
+          ),
+          Container(
+            child:Text('sdfjklsd')
           )
         ]
       ),
     );
-
-  //   return Scaffold(
-  //     appBar: BaseAppBar(AppBar(), '아이디 찾기', true, false, false),
-  //     body: StepperState(
-  //         formKeys: formKeys,
-  //         marginTopControllerButton: 190.0,
-  //         widgetList: [
-  //           Container(
-  //               margin: EdgeInsets.only(left: 16),
-  //               alignment: Alignment.centerLeft,
-  //               child: Column(
-  //                 crossAxisAlignment: CrossAxisAlignment.start,
-  //                 children: [
-  //                   Text(
-  //                     '이메일을 입력해주세요.',
-  //                     style:
-  //                         TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-  //                   ),
-  //                   Text('회원가입 할 때 지정된 이메일을 입력해주세요.',
-  //                       style: TextStyle(
-  //                           fontWeight: FontWeight.w500, fontSize: 14)),
-  //                       Container(
-  //                           margin: EdgeInsets.only(top: 55),
-  //                   child: Form(
-  //                       key: formKeys[0],
-  //                           child: TextFormField(
-  //                             validator: (String? value) {
-  //                               if (value?.isEmpty ?? true)
-  //                                 return "빈칸입니다. 이메일을 입력해주세요.";
-  //                               else return '이메일을 확인해주세요.';
-  //                             },
-  //                             decoration: InputDecoration(
-  //                               fillColor: AppColor.lightGrey,
-  //                               filled: true,
-  //                               enabledBorder: OutlineInputBorder(
-  //                                   borderSide: BorderSide.none,
-  //                                   borderRadius: BorderRadius.circular(10)),
-  //                               helperText:
-  //                                   '*입력하신 이메일은 본인 확인의 용도 외에는\n사용되지 않습니다.',
-  //                               helperStyle: TextStyle(
-  //                                   fontWeight: FontWeight.w500,
-  //                                   fontSize: 12,
-  //                                   color: AppColor.green),
-  //                               contentPadding: EdgeInsets.all(16),
-  //                             ),
-  //                           ))),
-  //                 ],
-  //               )),
-  //           Container(
-  //               alignment: Alignment.centerLeft,
-  //               child: Column(
-  //                 children: [],
-  //               )),
-  //           Container(child: Text('dfjslkdsf'))
-  //         ]),
-  //   );
-  // }
   }
 }

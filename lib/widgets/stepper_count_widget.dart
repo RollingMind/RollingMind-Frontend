@@ -18,10 +18,10 @@ class StepperState extends StatefulWidget {
 
   @override
   StepperWidget createState() => StepperWidget(
-        formKeys: formKeys,
-        marginTopControllerButton: marginTopControllerButton,
-        widgetList: widgetList,
-      );
+    formKeys: formKeys,
+    marginTopControllerButton: marginTopControllerButton,
+    widgetList: widgetList,
+  );
 }
 
 class StepperWidget extends State<StepperState> {
@@ -34,11 +34,12 @@ class StepperWidget extends State<StepperState> {
   int currentStep = 0;
   bool isActiveBack = false, isActiveNext = true, isFinally = false;
 
-  StepperWidget(
-      {Key? key,
-      required this.formKeys,
-      required this.marginTopControllerButton,
-      required this.widgetList});
+  StepperWidget({
+    Key? key,
+    required this.formKeys,
+    required this.marginTopControllerButton,
+    required this.widgetList
+  });
 
   init() {
     isActiveBack = true;
@@ -87,21 +88,38 @@ class StepperWidget extends State<StepperState> {
   // 컨트롤 버튼 추가
   Widget controlsBuilder(context, details) {
     return Padding(
-        padding: EdgeInsets.only(top: marginTopControllerButton),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            if (isFinally)
-              _buildButton('로그인', () => Navigator.pushNamed(context, "/"),
-                  AppColor.pink, 306, 0)
-            else if (isActiveBack)
-              _buildButton('이전', details.onStepCancel, Colors.white, 110, 108),
-            if (isActiveNext && !isFinally)
-              _buildButton('다음', details.onStepContinue, AppColor.pink, 110,
-                  (currentStep == 0) ? 234 : 16),
-          ],
-        ));
+      padding: EdgeInsets.only(top: marginTopControllerButton),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          if (isFinally)
+            _buildButton(
+              '로그인',
+              () => Navigator.pushNamed(context, "/"),
+              AppColor.pink,
+              306, 
+              0
+            )
+          else if (isActiveBack)
+            _buildButton(
+              '이전',
+              details.onStepCancel,
+              Colors.white,
+              110,
+              108
+            ),
+          if (isActiveNext && !isFinally)
+            _buildButton(
+              '다음',
+              details.onStepContinue,
+              AppColor.pink,
+              110,
+              (currentStep == 0) ? 234 : 16
+            ),
+        ],
+      )
+    );
   }
 
   // 컨트롤 버튼 UI
@@ -172,20 +190,22 @@ class StepperWidget extends State<StepperState> {
   @override
   Widget build(BuildContext context) {
     return Stepper(
-        type: StepperType.horizontal,
-        currentStep: currentStep,
-        onStepContinue: continueStep,
-        onStepCancel: cancelStep,
-        onStepTapped: onStepTapped,
-        controlsBuilder: controlsBuilder,
-        elevation: 0,
-        physics: NeverScrollableScrollPhysics(),
-        steps: [
-          for (int i = 0; i < widgetList.length; i++)
-            Step(
-                title: Text(''),
-                content: Column(children: [widgetList[i]]),
-                isActive: currentStep == i),
-        ]);
+      type: StepperType.horizontal,
+      currentStep: currentStep,
+      onStepContinue: continueStep,
+      onStepCancel: cancelStep,
+      onStepTapped: onStepTapped,
+      controlsBuilder: controlsBuilder,
+      elevation: 0,
+      physics: NeverScrollableScrollPhysics(),
+      steps: [
+        for (int i = 0; i < widgetList.length; i++)
+          Step(
+            title: Text(''),
+            content: Column(children: [widgetList[i]]),
+            isActive: currentStep == i
+          ),
+      ]
+    );
   }
 }

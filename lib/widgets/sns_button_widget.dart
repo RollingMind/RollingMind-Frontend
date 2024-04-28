@@ -19,7 +19,7 @@ class SnsButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: null,
           style: ElevatedButton.styleFrom(
-            disabledBackgroundColor: (type == 'kakao') ? AppColor.yellow : AppColor.grey02,
+            disabledBackgroundColor: (type == 'kakao') ? AppColor.yellow : AppColor.lightGreyF5,
             padding: (
               EdgeInsets.only(left: (type == "kakao") ? 71 : 86)
             )

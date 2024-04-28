@@ -30,7 +30,10 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           foregroundColor: AppColor.pink
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColor.pink),
+        colorScheme: ColorScheme.fromSeed(
+          primary: AppColor.pink,
+          seedColor: AppColor.pink
+        ),
         useMaterial3: true,
         fontFamily: "Inter",
       ),

@@ -5,7 +5,7 @@ import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/utils/response.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 import 'package:rollingmind_front/widgets/login_text_field_widget.dart';
-import 'package:rollingmind_front/widgets/sns_button_widget.dart';
+import 'package:rollingmind_front/widgets/login_sns_button_widget.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 14,
-                  color: AppColor.darkGrey
+                  color: AppColor.darkGrey8A
                 ),
               ),
               TextFieldArea(
@@ -73,23 +73,23 @@ class LoginPage extends StatelessWidget {
                     // Get.toNamed("/home");
                   },
                   child: SizedBox(
-                  width: 260,
-                  height: 55,
-                  child: ElevatedButton(
-                    onPressed: null,
-                    style: ElevatedButton.styleFrom(
-                      disabledBackgroundColor: AppColor.pink,
-                    ),
-                    child: Text(
-                      '로그인',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900
+                    width: 260,
+                    height: 55,
+                    child: ElevatedButton(
+                      onPressed: null,
+                      style: ElevatedButton.styleFrom(
+                        disabledBackgroundColor: AppColor.pink,
                       ),
-                    ),
-                  )
-                ),
+                      child: Text(
+                        '로그인',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900
+                        ),
+                      ),
+                    )
+                  ),
                 )
               ),
               const SizedBox(
@@ -104,14 +104,14 @@ class LoginPage extends StatelessWidget {
                     '아이디 찾기',
                     style: TextStyle(
                       fontSize: 13,
-                      color: AppColor.darkGrey
+                      color: AppColor.darkGrey8A
                     ),
                   )
                 ),
                 const Text(
                   "|",
                   style: TextStyle(
-                    color: AppColor.lightGrey,
+                    color: AppColor.grey02D9,
                     fontSize: 14
                   )
                 ),
@@ -121,14 +121,14 @@ class LoginPage extends StatelessWidget {
                     '비밀번호 찾기',
                     style: TextStyle(
                       fontSize: 13,
-                      color: AppColor.darkGrey
+                      color: AppColor.darkGrey8A
                     ),
                   )
                 ),
                 const Text(
                   "|",
                   style: TextStyle(
-                    color: AppColor.lightGrey,
+                    color: AppColor.grey02D9,
                     fontSize: 14
                   )
                 ),
@@ -138,7 +138,7 @@ class LoginPage extends StatelessWidget {
                     '회원가입',
                     style: TextStyle(
                       fontSize: 13,
-                      color: AppColor.darkGrey
+                      color: AppColor.darkGrey8A
                     ),
                   )
                 ),

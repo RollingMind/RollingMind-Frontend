@@ -51,16 +51,14 @@ class StepperWidget extends State<StepperState> {
   continueStep() {
     init();
     // 유효성 검사
-    if (formKeys[currentStep].currentState?.validate() ?? false) {
-      setState(() {
-        if (currentStep < widgetList.length - 1) {
-          isActiveBack = false;
-          currentStep = 0;
-        } else {
-          currentStep += 1;
-        }
-      });
-    }
+    setState(() {
+      if (currentStep < widgetList.length - 1 && !(formKeys[currentStep].currentState?.validate() ?? false)) {
+        isActiveBack = false;
+        currentStep = 0;
+      } else {
+        currentStep += 1;
+      }
+    });
     if (currentStep >= widgetList.length - 1) isFinally = true;
   }
 
@@ -165,7 +163,13 @@ class StepperWidget extends State<StepperState> {
           height: 18,
         ),
       ),
-      Text("이전", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700))
+      Text(
+        "이전",
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w700
+        )
+      )
     ]);
   }
 
@@ -175,8 +179,13 @@ class StepperWidget extends State<StepperState> {
       children: [
         Padding(
           padding: EdgeInsets.only(right: 10),
-          child: Text("다음",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+          child: Text(
+            "다음",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w700
+            )
+          ),
         ),
         Image(
           image: AssetImage("assets/mingcute_right-line.png"),

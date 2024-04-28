@@ -35,7 +35,7 @@ class TextFieldWidget extends State<TextFieldState> {
         child: TextField(
           controller: editingController,
           decoration: InputDecoration(
-            fillColor: AppColor.grey01,
+            fillColor: AppColor.grey01F0,
             filled: true,
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide.none,

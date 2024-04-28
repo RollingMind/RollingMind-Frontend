@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 14,
-                  color: AppColor.darkGrey
+                  color: AppColor.darkGrey8A
                 ),
               ),
               TextFieldArea(
@@ -104,14 +104,14 @@ class LoginPage extends StatelessWidget {
                     '아이디 찾기',
                     style: TextStyle(
                       fontSize: 13,
-                      color: AppColor.darkGrey
+                      color: AppColor.darkGrey8A
                     ),
                   )
                 ),
                 const Text(
                   "|",
                   style: TextStyle(
-                    color: AppColor.lightGrey,
+                    color: AppColor.grey02D9,
                     fontSize: 14
                   )
                 ),
@@ -121,14 +121,14 @@ class LoginPage extends StatelessWidget {
                     '비밀번호 찾기',
                     style: TextStyle(
                       fontSize: 13,
-                      color: AppColor.darkGrey
+                      color: AppColor.darkGrey8A
                     ),
                   )
                 ),
                 const Text(
                   "|",
                   style: TextStyle(
-                    color: AppColor.lightGrey,
+                    color: AppColor.grey02D9,
                     fontSize: 14
                   )
                 ),
@@ -138,7 +138,7 @@ class LoginPage extends StatelessWidget {
                     '회원가입',
                     style: TextStyle(
                       fontSize: 13,
-                      color: AppColor.darkGrey
+                      color: AppColor.darkGrey8A
                     ),
                   )
                 ),

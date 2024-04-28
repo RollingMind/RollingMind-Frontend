@@ -28,14 +28,14 @@ class TextFieldArea extends StatelessWidget {
         decoration: InputDecoration(
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: AppColor.lightGrey
+              color: AppColor.grey02D9
             )
           ),
           contentPadding: EdgeInsets.fromLTRB(0, 8, 0, 2),
           floatingLabelBehavior: FloatingLabelBehavior.always,
           labelText: labelText,
           hintText: labelText,
-          hintStyle: TextStyle(color: AppColor.darkGrey),
+          hintStyle: TextStyle(color: AppColor.darkGrey8A),
           labelStyle: TextStyle(
             color: AppColor.pink,
             fontSize: 15,

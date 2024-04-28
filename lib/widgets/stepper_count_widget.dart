@@ -18,16 +18,16 @@ class StepperState extends StatefulWidget {
 
   @override
   StepperWidget createState() => StepperWidget(
-        formKeys: formKeys,
-        marginTopControllerButton: marginTopControllerButton,
-        widgetList: widgetList,
-      );
+    formKeys: formKeys,
+    marginTopControllerButton: marginTopControllerButton,
+    widgetList: widgetList,
+  );
 }
 
 class StepperWidget extends State<StepperState> {
   final List<Widget> widgetList;
   final double marginTopControllerButton;
-  
+
   List<GlobalKey<FormState>> formKeys = [
     GlobalKey<FormState>(),
     GlobalKey<FormState>()
@@ -70,23 +70,27 @@ class StepperWidget extends State<StepperState> {
   // 이전 버튼을 누를 때
   cancelStep() {
     init();
+    
     if (currentStep > 0) {
       setState(() {
         currentStep -= 1;
       });
     }
+
     if (currentStep == 0) isActiveBack = false;
   }
 
   // 텝으로 이동 시
   onStepTapped(int value) {
     init();
+
     setState(() {
       // 현재 탭보다 더 큰 수의 탭으로 이동 불가 (큰 수의 탭은 무조건 다음 버튼으로만 이동 가능)
       if (currentStep < value) {
         if (currentStep == 0) isActiveBack = false;
         return;
       }
+      
       currentStep = value;
       if (currentStep == 0) isActiveBack = false;
       if (currentStep >= widgetList.length - 1) isFinally = true;
@@ -225,9 +229,9 @@ class StepperWidget extends State<StepperState> {
       steps: [
         for (int i = 0; i < widgetList.length; i++)
           Step(
-              title: Text(''),
-              content: Column(children: [widgetList[i]]),
-              isActive: currentStep == i),
+            title: Text(''),
+            content: Column(children: [widgetList[i]]),
+            isActive: currentStep == i),
       ]
     );
   }

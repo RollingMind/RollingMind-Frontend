@@ -17,7 +17,6 @@ class SignUpPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(46),
               child: Container(
-                  padding: EdgeInsets.only(left: 25.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -51,11 +50,14 @@ class SignUpPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         padding: EdgeInsets.only(
                             left: 31.0, right: 26.0, )),
-                    onPressed: () {},
+                    onPressed: () {
+
+                    },
                     child: Container(
                       height: 42,
                       child: Row(
                       children: [
+                        //if ch1, ch2가 값을 return 받았다면
                         Padding(
                           padding: EdgeInsets.only(right: 10.0),
                           child: Text("다음",
@@ -67,6 +69,7 @@ class SignUpPage extends StatelessWidget {
                           width: 18,
                           height: 18,
                         ),
+                        //아니라면
                       ],
                     ),
                     ), 

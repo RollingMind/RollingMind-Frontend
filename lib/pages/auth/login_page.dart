@@ -116,7 +116,7 @@ class LoginPage extends StatelessWidget {
                   )
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed("/find_pw"),
                   child: Text(
                     '비밀번호 찾기',
                     style: TextStyle(

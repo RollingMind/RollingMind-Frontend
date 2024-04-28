@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MembershipCheckbox extends StatefulWidget {
   @override
@@ -16,7 +17,8 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
+        Container(
+          margin: EdgeInsets.only(bottom: 39.0),
           padding: EdgeInsets.only(left: 46.0),
           child: Row(
             children: [
@@ -51,56 +53,65 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
           padding: EdgeInsets.all(10.0),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Checkbox(
-                    value: ch1,
-                    activeColor: Color.fromRGBO(253, 146, 139, 1),
-                    onChanged: (val) {
-                      setState(() {
-                        ch1 = val!;
-                      });
-                    },
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text('[필수] 개인정보 수집 및 이용동의'),
-                ],
+              Container(
+                margin: EdgeInsets.only(bottom: 42.0),
+                child: Row(
+                  children: [
+                    Checkbox(
+                      value: ch1,
+                      activeColor: Color.fromRGBO(253, 146, 139, 1),
+                      onChanged: (val) {
+                        setState(() {
+                          ch1 = val!;
+                        });
+                      },
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text('[필수] 개인정보 수집 및 이용동의'),
+                  ],
+                ),
               ),
-              Row(
-                children: [
-                  Checkbox(
-                    value: ch2,
-                    activeColor: Color.fromRGBO(253, 146, 139, 1),
-                    onChanged: (val) {
-                      setState(() {
-                        ch2 = val!;
-                      });
-                    },
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text('[필수] 이용약관 동의'),
-                ],
+              Container(
+                margin: EdgeInsets.only(bottom: 42.0),
+                child: Row(
+                  children: [
+                    Checkbox(
+                      value: ch2,
+                      activeColor: Color.fromRGBO(253, 146, 139, 1),
+                      onChanged: (val) {
+                        setState(() {
+                          ch2 = val!;
+                        });
+                      },
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text('[필수] 이용약관 동의'),
+                  ],
+                ),
               ),
-              Row(
-                children: [
-                  Checkbox(
-                    value: ch3,
-                    activeColor: Color.fromRGBO(253, 146, 139, 1),
-                    onChanged: (val) {
-                      setState(() {
-                        ch3 = val!;
-                      });
-                    },
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text('[선택] 이벤트성 정보 수신 동의'),
-                ],
+              Container(
+                margin: EdgeInsets.only(bottom: 42.0),
+                child: Row(
+                  children: [
+                    Checkbox(
+                      value: ch3,
+                      activeColor: Color.fromRGBO(253, 146, 139, 1),
+                      onChanged: (val) {
+                        setState(() {
+                          ch3 = val!;
+                        });
+                      },
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text('[선택] 이벤트성 정보 수신 동의'),
+                  ],
+                ),
               ),
             ],
           ),

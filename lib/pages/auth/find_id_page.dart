@@ -8,7 +8,9 @@ class FindIdPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseAppBar(AppBar(), '아이디 찾기', true, false, false),
-      body: StepperState([
+      body: StepperState(
+        marginTopControllerButton: 190.0,
+        widgetList: [
         Container(
             margin: EdgeInsets.only(left: 16),
             alignment: Alignment.centerLeft,
@@ -45,7 +47,8 @@ class FindIdPage extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Column(
               children: [],
-            ))
+            )),
+          Container(child: Text('dfjslkdsf'))
       ]),
     );
   }

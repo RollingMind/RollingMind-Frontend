@@ -3,6 +3,7 @@ import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 import 'package:rollingmind_front/widgets/password_text_field_widget.dart';
 import 'package:rollingmind_front/widgets/stepper_count_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 List<GlobalKey<FormState>> formKeys = [
   GlobalKey<FormState>(),
@@ -14,7 +15,22 @@ class FindPwPage extends StatelessWidget {
   final _idController = TextEditingController();
   final _pwController = TextEditingController();
 
-  saveData() {
+  int stepCount = 0;
+
+  saveData() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    
+    if (stepCount == 0) {
+      pref.setString('id', _idController.text);
+      debugPrint("${_idController.text}");
+    }
+
+    else {
+      debugPrint("${_pwController.text}");
+      pref.setString('pw', _pwController.text);
+    }
+
+    stepCount++;
   }
 
   @override
@@ -150,7 +166,11 @@ class FindPwPage extends StatelessWidget {
                 const SizedBox(
                   height: 2,
                 ),
-                PasswordField(formKey: formKeys[1])
+                PasswordField(
+                  formKey: formKeys[1],
+                  controller: _pwController,
+                ),
+
               ]
             )
           )

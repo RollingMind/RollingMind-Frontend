@@ -4,24 +4,31 @@ import 'package:rollingmind_front/utils/colors.dart';
 
 class PasswordField extends StatefulWidget {
   final GlobalKey<FormState> formKey;
+  final TextEditingController controller;
 
   PasswordField({
     Key? key,
-    required this.formKey
+    required this.formKey,
+    required this.controller
   }) : super(key: key);
 
   @override
-  _PasswordFieldState createState() => _PasswordFieldState(formKey: formKey);
+  _PasswordFieldState createState() => _PasswordFieldState(
+    formKey: formKey,
+    controller: controller
+  );
 }
 
 class _PasswordFieldState extends State<PasswordField> {
   final GlobalKey<FormState> formKey;
+  final TextEditingController controller;
   final textFieldFocusNode = FocusNode();
   bool _obscured = true;
 
   _PasswordFieldState({
     Key? key,
-    required this.formKey
+    required this.formKey,
+    required this.controller
   });
 
   void _toggleObscured() {
@@ -43,6 +50,7 @@ class _PasswordFieldState extends State<PasswordField> {
           keyboardType: TextInputType.visiblePassword,
           obscureText: _obscured,
           focusNode: textFieldFocusNode,
+          controller: controller,
           decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.never, 
             filled: true,

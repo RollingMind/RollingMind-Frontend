@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rollingmind_front/pages/auth/login_page.dart';
 import 'package:rollingmind_front/utils/colors.dart';
 
 class StepperState extends StatefulWidget {
@@ -111,7 +113,7 @@ class StepperWidget extends State<StepperState> {
           if (isFinally)
             _buildButton(
               '로그인',
-              () => Navigator.pushNamed(context, "/"),
+              () => Get.offAll(LoginPage()),
               AppColor.pink,
               306,
               0

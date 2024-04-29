@@ -17,11 +17,11 @@ class FindIdPage extends StatelessWidget {
 
   saveData() {
     const storage = FlutterSecureStorage();
-    if(StepperWidget.currentStep == 1) {
+    if(StepperWidget.currentStep == 0) {
       storage.write(key: 'email', value: _emailController.text);
       debugPrint("${_emailController.text}");
     }
-    else if (StepperWidget.currentStep == 2) {
+    else if (StepperWidget.currentStep == 1) {
       storage.write(key: 'auth', value: _authenticationController.text);
       debugPrint("${_authenticationController.text}");
       // TODO : 인증 코드 확인하는 API 연결

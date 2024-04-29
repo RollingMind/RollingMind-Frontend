@@ -60,7 +60,7 @@ class StepperWidget extends State<StepperState> {
   }
 
   // 다음 버튼을 누를 때
-  continueStep() async {
+  continueStep() {
     init();
 
     // 유효성 검사

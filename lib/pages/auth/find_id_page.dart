@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 import 'package:rollingmind_front/widgets/stepper_count_widget.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:validators/validators.dart';
 
 List<GlobalKey<FormState>> formKeys = [
@@ -15,10 +15,17 @@ class FindIdPage extends StatelessWidget {
   final _emailController = TextEditingController();
   final _authenticationController = TextEditingController();
 
-  saveData() async {
-    final SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setString('email', _emailController.text);
-    debugPrint("${_emailController.text}");
+  saveData() {
+    const storage = FlutterSecureStorage();
+    if(StepperWidget.currentStep == 1) {
+      storage.write(key: 'email', value: _emailController.text);
+      debugPrint("${_emailController.text}");
+    }
+    else if (StepperWidget.currentStep == 2) {
+      storage.write(key: 'auth', value: _authenticationController.text);
+      debugPrint("${_authenticationController.text}");
+      // TODO : 인증 코드 확인하는 API 연결
+    }
   }
 
   @override

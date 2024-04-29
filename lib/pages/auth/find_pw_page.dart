@@ -18,10 +18,10 @@ class FindPwPage extends StatelessWidget {
 
   saveData() {
     const storage = FlutterSecureStorage();
-    if (StepperWidget.currentStep == 1) {
+    if (StepperWidget.currentStep == 0) {
       storage.write(key: 'id', value: _idController.text);
       debugPrint("${_idController.text}");
-    } else if (StepperWidget.currentStep == 2) {
+    } else if (StepperWidget.currentStep == 1) {
       storage.write(key: 'pw', value: _pwController.text);
       debugPrint("${_pwController.text}");
     }

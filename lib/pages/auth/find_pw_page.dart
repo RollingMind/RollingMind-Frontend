@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
+import 'package:rollingmind_front/widgets/password_confirm_text_field.dart';
 import 'package:rollingmind_front/widgets/password_text_field_widget.dart';
 import 'package:rollingmind_front/widgets/stepper_count_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,8 +15,9 @@ class FindPwPage extends StatelessWidget {
 
   final _idController = TextEditingController();
   final _pwController = TextEditingController();
+  final _pwConfirmController = TextEditingController();
 
-  int stepCount = 0;
+  static int stepCount = 0;
 
   saveData() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
@@ -33,13 +35,18 @@ class FindPwPage extends StatelessWidget {
     stepCount++;
   }
 
+  double marginTopValue() {
+    if(StepperWidget.currentStep == 0) return 230.0;
+    else return 117.0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseAppBar(AppBar(), '비밀번호 찾기', true, false, false),
       body: StepperState(
         formKeys: formKeys,
-        marginTopControllerButton: 117.0,
+        marginTopControllerButton: marginTopValue,
         addContinueStepFunction: saveData,
         widgetList: [
           // Step 1
@@ -170,7 +177,23 @@ class FindPwPage extends StatelessWidget {
                   formKey: formKeys[1],
                   controller: _pwController,
                 ),
-
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(5, 24, 0, 4),
+                  child: Text(
+                    '비밀번호 확인',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                PasswordConfirmField(
+                  pwController: _pwController,
+                  pwConfirmController: _pwConfirmController
+                )
               ]
             )
           )

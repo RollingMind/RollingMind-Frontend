@@ -27,7 +27,7 @@ class FindIdPage extends StatelessWidget {
       appBar: BaseAppBar(AppBar(), '아이디 찾기', true, false, false),
       body: StepperState(
         formKeys: formKeys,
-        marginTopControllerButton: 190.0,
+        marginTopControllerButton: () => 190.0,
         addContinueStepFunction: saveData,
         widgetList: [
           // Step 1

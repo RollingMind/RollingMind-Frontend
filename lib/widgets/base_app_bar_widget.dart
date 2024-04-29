@@ -38,7 +38,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
                     width: 30,
                     height: 30
                   ),
-                  onPressed: () => Get.offNamed("/"),
+                  onPressed: () => Get.back(),
                   padding: EdgeInsets.only(left: 16),
                 )
       : (isList) ? IconButton(

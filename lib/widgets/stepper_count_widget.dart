@@ -5,47 +5,53 @@ import 'package:rollingmind_front/utils/colors.dart';
 
 class StepperState extends StatefulWidget {
   final List<Widget> widgetList;
-  final double marginTopControllerButton;
+  final double Function()? marginTopControllerButton;
   final Function addContinueStepFunction;
   List<GlobalKey<FormState>> formKeys = [];
 
-  StepperState({
-    Key? key,
-    required this.formKeys,
-    required this.marginTopControllerButton,
-    required this.widgetList,
-    required this.addContinueStepFunction
-  }) : super(key: key);
+  StepperState(
+      {Key? key,
+      required this.formKeys,
+      required this.marginTopControllerButton,
+      required this.widgetList,
+      required this.addContinueStepFunction})
+      : super(key: key);
 
   @override
   StepperWidget createState() => StepperWidget(
-    formKeys: formKeys,
-    marginTopControllerButton: marginTopControllerButton,
-    widgetList: widgetList,
-    addContinueStepFunction: addContinueStepFunction
-  );
+      formKeys: formKeys,
+      marginTopControllerButton: marginTopControllerButton,
+      widgetList: widgetList,
+      addContinueStepFunction: addContinueStepFunction);
 }
 
 class StepperWidget extends State<StepperState> {
   final List<Widget> widgetList;
-  final double marginTopControllerButton;
+  final double Function()? marginTopControllerButton;
   final Function addContinueStepFunction;
+  static int currentStep = 0;
+  bool isActiveBack = false, isActiveNext = true, isFinally = false;
 
   List<GlobalKey<FormState>> formKeys = [
     GlobalKey<FormState>(),
     GlobalKey<FormState>()
   ];
 
-  int currentStep = 0;
-  bool isActiveBack = false, isActiveNext = true, isFinally = false;
+  @override
+  void initState() {
+    currentStep = 0;
+    isActiveBack = false;
+    isActiveNext = true;
+    isFinally = false;
+    super.initState();
+  }
 
-  StepperWidget({
-    Key? key,
-    required this.formKeys,
-    required this.marginTopControllerButton,
-    required this.widgetList,
-    required this.addContinueStepFunction
-  });
+  StepperWidget(
+      {Key? key,
+      required this.formKeys,
+      required this.marginTopControllerButton,
+      required this.widgetList,
+      required this.addContinueStepFunction});
 
   init() {
     isActiveBack = true;
@@ -75,7 +81,7 @@ class StepperWidget extends State<StepperState> {
   // 이전 버튼을 누를 때
   cancelStep() {
     init();
-    
+
     if (currentStep > 0) {
       setState(() {
         currentStep -= 1;
@@ -95,7 +101,7 @@ class StepperWidget extends State<StepperState> {
         if (currentStep == 0) isActiveBack = false;
         return;
       }
-      
+
       currentStep = value;
       if (currentStep == 0) isActiveBack = false;
       if (currentStep >= widgetList.length - 1) isFinally = true;
@@ -104,49 +110,29 @@ class StepperWidget extends State<StepperState> {
 
   // 컨트롤 버튼 추가
   Widget controlsBuilder(context, details) {
+    final double marginTopValue = marginTopControllerButton!();
+
     return Padding(
-      padding: EdgeInsets.only(top: marginTopControllerButton),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          if (isFinally)
-            _buildButton(
-              '로그인',
-              () => Get.offAll(LoginPage()),
-              AppColor.pink,
-              306,
-              0
-            )
-          else if (isActiveBack)
-            _buildButton(
-              '이전',
-              details.onStepCancel,
-              Colors.white,
-              110,
-              108
-            ),
-          if (isActiveNext && !isFinally)
-            _buildButton(
-              '다음',
-              details.onStepContinue,
-              AppColor.pink,
-              110,
-              (currentStep == 0) ? 234 : 16
-            ),
-        ],
-      )
-    );
+        padding: EdgeInsets.only(top: marginTopValue),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            if (isFinally)
+              _buildButton(
+                  '로그인', () => Get.offAll(LoginPage()), AppColor.pink, 306, 0)
+            else if (isActiveBack)
+              _buildButton('이전', details.onStepCancel, Colors.white, 110, 108),
+            if (isActiveNext && !isFinally)
+              _buildButton('다음', details.onStepContinue, AppColor.pink, 110,
+                  (currentStep == 0) ? 234 : 16),
+          ],
+        ));
   }
 
   // 컨트롤 버튼 UI
-  Widget _buildButton(
-    String text,
-    VoidCallback onPressed,
-    Color buttonColor,
-    double width,
-    double left
-  ) {
+  Widget _buildButton(String text, VoidCallback onPressed, Color buttonColor,
+      double width, double left) {
     return SingleChildScrollView(
       child: Container(
         width: width,
@@ -187,13 +173,7 @@ class StepperWidget extends State<StepperState> {
           height: 18,
         ),
       ),
-      Text(
-        "이전",
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w700
-        )
-      )
+      Text("이전", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700))
     ]);
   }
 
@@ -203,13 +183,8 @@ class StepperWidget extends State<StepperState> {
       children: [
         Padding(
           padding: EdgeInsets.only(right: 10),
-          child: Text(
-            "다음",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w700
-            )
-          ),
+          child: Text("다음",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
         ),
         Image(
           image: AssetImage("assets/mingcute_right-line.png"),
@@ -223,21 +198,20 @@ class StepperWidget extends State<StepperState> {
   @override
   Widget build(BuildContext context) {
     return Stepper(
-      type: StepperType.horizontal,
-      currentStep: currentStep,
-      onStepContinue: continueStep,
-      onStepCancel: cancelStep,
-      onStepTapped: onStepTapped,
-      controlsBuilder: controlsBuilder,
-      elevation: 0,
-      physics: NeverScrollableScrollPhysics(),
-      steps: [
-        for (int i = 0; i < widgetList.length; i++)
-          Step(
-            title: Text(''),
-            content: Column(children: [widgetList[i]]),
-            isActive: currentStep == i),
-      ]
-    );
+        type: StepperType.horizontal,
+        currentStep: currentStep,
+        onStepContinue: continueStep,
+        onStepCancel: cancelStep,
+        onStepTapped: onStepTapped,
+        controlsBuilder: controlsBuilder,
+        elevation: 0,
+        physics: NeverScrollableScrollPhysics(),
+        steps: [
+          for (int i = 0; i < widgetList.length; i++)
+            Step(
+                title: Text(''),
+                content: Column(children: [widgetList[i]]),
+                isActive: currentStep == i),
+        ]);
   }
 }

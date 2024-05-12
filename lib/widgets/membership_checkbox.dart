@@ -37,7 +37,7 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
                   },
                 ),
               ),
-              Text('전체 약관 동의', style: TextStyle(fontSize: 15),),
+              Text('전체 약관 동의', style: TextStyle(fontSize: 15)), 
             ],
           ),
         ),
@@ -54,7 +54,7 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(bottom: 42.0),
+                margin: EdgeInsets.only(bottom: 21.0),
                 child: Row(
                   children: [
                     Checkbox(
@@ -72,7 +72,7 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 42.0),
+                margin: EdgeInsets.only(bottom: 21.0),
                 padding: EdgeInsets.only(right: 3.0),
                 child: Row(
                   children: [
@@ -91,7 +91,6 @@ class _MembershipCheckboxState extends State<MembershipCheckbox> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 42.0),
                 padding: EdgeInsets.only(right: 3.0),
                 child: Row(
                   children: [

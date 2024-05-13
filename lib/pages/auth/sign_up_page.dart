@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:rollingmind_front/pages/auth/sign_up_page2.dart';
 import 'package:rollingmind_front/widgets/membership_checkbox.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 
@@ -38,7 +39,7 @@ class SignUpPage extends StatelessWidget {
             ),
             MembershipCheckbox(),
             Padding(
-              padding: const EdgeInsets.all(46),
+              padding: const EdgeInsets.only(left: 46, right: 46, top: 23),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -48,11 +49,8 @@ class SignUpPage extends StatelessWidget {
                         alignment: Alignment.center,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        padding: EdgeInsets.only(
-                            left: 31.0, right: 26.0, )),
-                    onPressed: () {
-
-                    },
+                        padding: EdgeInsets.only(left: 31.0, right: 26.0, )),
+                    onPressed: () => Get.to(SignUpPage2()),
                     child: Container(
                       height: 42,
                       child: Row(
@@ -83,3 +81,4 @@ class SignUpPage extends StatelessWidget {
     );
   }
 }
+

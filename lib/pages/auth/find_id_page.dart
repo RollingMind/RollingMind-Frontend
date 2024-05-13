@@ -7,6 +7,7 @@ import 'package:validators/validators.dart';
 
 List<GlobalKey<FormState>> formKeys = [
   GlobalKey<FormState>(),
+  GlobalKey<FormState>(),
   GlobalKey<FormState>()
 ];
 

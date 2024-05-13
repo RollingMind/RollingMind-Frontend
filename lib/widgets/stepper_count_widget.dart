@@ -34,6 +34,7 @@ class StepperWidget extends State<StepperState> {
 
   List<GlobalKey<FormState>> formKeys = [
     GlobalKey<FormState>(),
+    GlobalKey<FormState>(),
     GlobalKey<FormState>()
   ];
 

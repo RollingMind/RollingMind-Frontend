@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:rollingmind_front/pages/auth/find_id_page.dart';
 import 'package:rollingmind_front/pages/auth/find_pw_page.dart';
 import 'package:rollingmind_front/pages/auth/login_page.dart';
-import 'package:rollingmind_front/pages/auth/sign_up_page.dart';
+import 'package:rollingmind_front/pages/auth/signup_page.dart';
 
 abstract class AppRoutes {
   AppRoutes._();

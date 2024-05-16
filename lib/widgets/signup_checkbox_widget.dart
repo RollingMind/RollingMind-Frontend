@@ -47,7 +47,7 @@ class CheckBoxs extends StatelessWidget {
 
     List<Widget> list = [
       renderContainer(checkController, 0, labels[0]),
-      const Divider(thickness: 1.0, color: AppColor.grey02D9, height: 39),
+      const Divider(thickness: 1.0, color: AppColor.grey02D9, height: 36),
     ];
 
     list.addAll(List.generate(
@@ -60,7 +60,7 @@ class CheckBoxs extends StatelessWidget {
     return GestureDetector(
       onTap: () => checkController.updateCheckState(index),
       child: Container(
-        padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+        padding: EdgeInsets.only(top: ((index == 0) ? 0 : 18.0), bottom: 18.0),
         color: Colors.white,
         child: Row(
           children: [

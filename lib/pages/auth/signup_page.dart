@@ -6,20 +6,25 @@ import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 import 'package:rollingmind_front/widgets/password_text_field_widget.dart';
 import 'package:rollingmind_front/widgets/signup_checkbox_widget.dart';
 import 'package:rollingmind_front/widgets/stepper_count_widget.dart';
+import 'package:validators/validators.dart';
 
 List<GlobalKey<FormState>> formKeys = [
   GlobalKey<FormState>(),
   GlobalKey<FormState>(),
-  GlobalKey<FormState>()
+  GlobalKey<FormState>(),
+  GlobalKey<FormState>(),
 ];
 
 class SignUpPage extends StatelessWidget {
   final CheckController checkController = Get.put(CheckController());
+
   final _idController = TextEditingController();
   final _pwController = TextEditingController();
   final _pwConfirmController = TextEditingController();
   final _nickNameController = TextEditingController();
   final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  
   var idCheck = false, nickNameCheck = false;
   
   void saveData() {
@@ -444,7 +449,70 @@ class SignUpPage extends StatelessWidget {
               ]
             )
           ),
-          Container()
+           Container(
+            margin: EdgeInsets.only(left: 16),
+            alignment: Alignment.centerLeft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  '이메일을 입력해주세요.',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700, 
+                    fontSize: 20
+                  ),
+                ),
+                const SizedBox(
+                  height: 76,
+                ),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(5, 0, 0, 4),
+                  child: Text(
+                    '이메일',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                SizedBox(
+                  width: 345,
+                  child: Form(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    key: formKeys[3],
+                    child: TextFormField(
+                      controller: _emailController,
+                      validator: (String? value) {
+                        if(value?.isEmpty ?? true) {
+                          return '빈칸입니다. 이메일을 입력해주세요.';
+                        } else if(!isEmail(value!)) { 
+                          return '이메일을 확인해주세요.';
+                        }
+                      },
+                      decoration: InputDecoration(
+                        fillColor: AppColor.grey01F0,
+                        filled: true,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(10)
+                        ),
+                        helperText: '*입력하신 이메일은 주요 공지사항, 본인 확인의 용도\n외에는 사용되지 않습니다.',
+                        helperStyle: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                          color: AppColor.green
+                        ),
+                        contentPadding: EdgeInsets.all(10),
+                      ),
+                    )
+                  )
+                )
+              ]
+            )
+          )
         ],
       ),
     );

@@ -39,6 +39,9 @@ class LoginPage extends StatelessWidget {
                   color: AppColor.darkGrey8A
                 ),
               ),
+              const SizedBox(
+                height: 20
+              ),
               TextFieldArea(
                 labelText: '아이디',
                 left: 0,
@@ -56,7 +59,7 @@ class LoginPage extends StatelessWidget {
                 controller: _pwController
               ),
               const SizedBox(
-                height: 35
+                height: 40
               ),
               Center(
                 child: GestureDetector(
@@ -145,7 +148,7 @@ class LoginPage extends StatelessWidget {
                 ]
               ),
               const SizedBox(
-                height: 40
+                height: 50
               ),
               Center(
                 child: Image(

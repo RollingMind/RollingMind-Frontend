@@ -84,7 +84,7 @@ class FindPwPage extends StatelessWidget {
                 height: 2,
               ),
               SizedBox(
-                width: 325,
+                width: 345,
                 child: Form(
                   autovalidateMode: AutovalidateMode.always,
                   key: formKeys[0],

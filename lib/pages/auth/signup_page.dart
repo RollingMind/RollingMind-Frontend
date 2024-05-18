@@ -23,9 +23,12 @@ class SignUpPage extends StatelessWidget {
   var idCheck = false, nickNameCheck = false;
   
   void saveData() {
+    const storage = FlutterSecureStorage();
+
     debugPrint("${checkController.isChecked}");
     debugPrint("${checkController.isChecked[1]}");
     debugPrint("${checkController.isChecked[2]}");
+    
     if (StepperWidget.currentStep == 0 && (!checkController.isChecked[1] || !checkController.isChecked[2])) {
       // 필수 체크박스가 체크되지 않았을 경우
       Get.snackbar(
@@ -39,8 +42,6 @@ class SignUpPage extends StatelessWidget {
     }
 
     else if(StepperWidget.currentStep == 1 && idCheck) {
-      const storage = FlutterSecureStorage();
-      
       storage.write(key: 'id', value: _idController.text);
       storage.write(key: 'pw', value: _pwController.text);
 
@@ -53,6 +54,26 @@ class SignUpPage extends StatelessWidget {
       Get.snackbar(
         '경고',
         '아이디 중복 확인이 필요합니다.',
+        snackPosition: SnackPosition.TOP,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
+      StepperWidget.currentStep -= 1;
+    }
+
+    else if (StepperWidget.currentStep == 2 && nickNameCheck) {
+      storage.write(key: 'nickname', value: _nickNameController.text);
+      storage.write(key: 'name', value: _nameController.text);
+
+      debugPrint("${_nickNameController.text}");
+      debugPrint("${_nameController.text}");
+    }
+
+    else if (StepperWidget.currentStep == 2 && !nickNameCheck) {
+      // 닉네임 중복 확인을 하지 않을 경우
+      Get.snackbar(
+        '경고',
+        '닉네임 중복 확인이 필요합니다.',
         snackPosition: SnackPosition.TOP,
         backgroundColor: Colors.red,
         colorText: Colors.white,
@@ -422,7 +443,8 @@ class SignUpPage extends StatelessWidget {
                 ),
               ]
             )
-          )
+          ),
+          Container()
         ],
       ),
     );

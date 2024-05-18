@@ -166,10 +166,12 @@ class FindPwPage extends StatelessWidget {
                 const SizedBox(
                   height: 2,
                 ),
-                PasswordField(
-                  formKey: formKeys[1],
-                  pwController: _pwController,
-                  pwConfirmController: _pwConfirmController,
+                Form(
+                  key: formKeys[1],
+                  child: PasswordField(
+                    pwController: _pwController,
+                    pwConfirmController: _pwConfirmController,
+                  )
                 ),
               ]
             )

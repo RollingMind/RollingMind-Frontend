@@ -131,9 +131,9 @@ class SignUpPage extends StatelessWidget {
                         ),
                         SizedBox(width: 16),
                         SizedBox(
-                          width: 90,
+                          width: 110,
                           child: Container(
-                            margin: EdgeInsets.only(right: 10),
+                            margin: EdgeInsets.only(right: 23),
                             child: ElevatedButton(
                               style: TextButton.styleFrom(
                                 shape: RoundedRectangleBorder(

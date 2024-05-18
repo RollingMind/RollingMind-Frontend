@@ -85,6 +85,12 @@ class SignUpPage extends StatelessWidget {
       );
       StepperWidget.currentStep -= 1;
     }
+
+    else if (StepperWidget.currentStep == 3) {
+      storage.write(key: 'email', value: _emailController.text);
+      
+      debugPrint("${_emailController.text}");
+    }
   }
 
   double marginTopValue() {

@@ -13,7 +13,9 @@ List<GlobalKey<FormState>> formKeys = [
 
 class SignUpPage extends StatelessWidget {
   final CheckController checkController = Get.put(CheckController());
-
+  final _idController = TextEditingController();
+  final idCheck = false;
+  
   void saveData() {
     debugPrint("${checkController.isChecked}");
     debugPrint("${checkController.isChecked[1]}");
@@ -29,6 +31,8 @@ class SignUpPage extends StatelessWidget {
       );
       StepperWidget.currentStep = -1;
     }
+
+    // TODO : StepperWidget.currentStep이 1일 경우 idCheck가 true여야 함.
   }
 
   double marginTopValue() {
@@ -86,9 +90,95 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-              
+                const Text(
+                  '아이디와 비밀번호를\n입력해주세요.',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700, fontSize: 20
+                  ),
+                ),
+                const SizedBox(
+                  height: 46,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: Form(
+                    autovalidateMode: AutovalidateMode.always,
+                    key: formKeys[1],
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded( 
+                          child: TextFormField(
+                            controller: _idController,
+                            validator: (String? value) {
+                              if(value?.isEmpty ?? true) {
+                                return '빈칸입니다. 사용할 아이디를 입력해주세요.';
+                              }
+                            },
+                            onFieldSubmitted: (String value) {
+                              debugPrint("${value}");
+                            },
+                            decoration: InputDecoration(
+                              fillColor: AppColor.grey01F0,
+                              filled: true,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(10)
+                              ),
+                              contentPadding: EdgeInsets.symmetric(vertical: 14, horizontal: 9),
+                            ),
+                          )
+                        ),
+                        SizedBox(width: 16),
+                        SizedBox(
+                          width: 90,
+                          child: Container(
+                            margin: EdgeInsets.only(right: 10),
+                            child: ElevatedButton(
+                              style: TextButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                side: BorderSide(color: AppColor.grey01F0),
+                                backgroundColor: AppColor.grey01F0,
+                                padding: EdgeInsets.all(14)
+                              ),
+                              onPressed: () {
+                                if(_idController.text.isEmpty) return;
+                                // TODO: 사용 가능한 지 확인하는 API 불러오기
+                                Get.snackbar(
+                                  '확인',
+                                  '사용할 수 있는 아이디입니다.',
+                                  snackPosition: SnackPosition.TOP,
+                                  backgroundColor: Colors.green,
+                                  colorText: Colors.white,
+                                );
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '중복확인',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColor.darkGrey49,
+                                      fontSize: 14
+                                    )
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               ]
             ),
+          ),
+          Container(
+
           )
         ],
       ),

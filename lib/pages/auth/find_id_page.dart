@@ -79,7 +79,7 @@ class FindIdPage extends StatelessWidget {
                 SizedBox(
                   width: 345,
                   child: Form(
-                    autovalidateMode: AutovalidateMode.always,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     key: formKeys[0],
                     child: TextFormField(
                       controller: _emailController,
@@ -154,7 +154,7 @@ class FindIdPage extends StatelessWidget {
                     SizedBox(
                       width: 247,
                       child: Form(
-                        autovalidateMode: AutovalidateMode.always,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
                         key: formKeys[1],
                         child: TextFormField(
                           controller: _authenticationController,

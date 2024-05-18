@@ -18,7 +18,9 @@ class SignUpPage extends StatelessWidget {
   final _idController = TextEditingController();
   final _pwController = TextEditingController();
   final _pwConfirmController = TextEditingController();
-  var idCheck = false;
+  final _nickNameController = TextEditingController();
+  final _nameController = TextEditingController();
+  var idCheck = false, nickNameCheck = false;
   
   void saveData() {
     debugPrint("${checkController.isChecked}");
@@ -138,12 +140,14 @@ class SignUpPage extends StatelessWidget {
                             child: Text(
                               '아이디',
                               style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 14),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14
+                              ),
                             ),
                           ),
                           Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
                             Expanded( 
                               child: TextFormField(
                                 autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -244,7 +248,180 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
           Container(
-
+            margin: EdgeInsets.only(left: 16),
+            alignment: Alignment.centerLeft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  '앱 내에서 사용할\n실명과 닉네임을 입력해주세요.',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700, 
+                    fontSize: 20
+                  ),
+                ),
+                const SizedBox(
+                  height: 46,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: Form(
+                    autovalidateMode: AutovalidateMode.always,
+                    key: formKeys[2],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.fromLTRB(5, 0, 0, 4),
+                            child: Text(
+                              '닉네임',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14
+                              ),
+                            ),
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                            Expanded( 
+                              child: TextFormField(
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
+                                controller: _nickNameController,
+                                validator: (String? value) {
+                                  if(value?.isEmpty ?? true) {
+                                    return '빈칸입니다. 사용할 닉네임을 입력해주세요.';
+                                  }
+                                },
+                                onFieldSubmitted: (String value) {
+                                  debugPrint("${value}");
+                                },
+                                onChanged: (String value) {
+                                  nickNameCheck = false;
+                                  debugPrint("${value} + ${idCheck}");
+                                },
+                                decoration: InputDecoration(
+                                  fillColor: AppColor.grey01F0,
+                                  filled: true,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(10)
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  contentPadding: EdgeInsets.symmetric(vertical: 14, horizontal: 9),
+                                ),
+                              )
+                            ),
+                            const SizedBox(
+                              width: 16
+                            ),
+                            SizedBox(
+                              width: 110,
+                              child: Container(
+                                margin: EdgeInsets.only(right: 23),
+                                child: ElevatedButton(
+                                  style: TextButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    side: BorderSide(color: AppColor.grey01F0),
+                                    backgroundColor: AppColor.grey01F0,
+                                    padding: EdgeInsets.all(14)
+                                  ),
+                                  onPressed: () {
+                                    if(_idController.text.isEmpty) return;
+                                    nickNameCheck = true;
+                                    // TODO: 사용 가능한 지 확인하는 API 불러오기
+                                    Get.snackbar(
+                                      '확인',
+                                      '사용할 수 있는 닉네임입니다.',
+                                      snackPosition: SnackPosition.TOP,
+                                      backgroundColor: Colors.green,
+                                      colorText: Colors.white,
+                                    );
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Text(
+                                        '중복확인',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColor.darkGrey49,
+                                          fontSize: 14
+                                        )
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              )
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 23
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.fromLTRB(5, 0, 0, 4),
+                          child: Text(
+                            '이름',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 14),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 345,
+                          child: TextFormField(
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
+                            controller: _nameController,
+                            validator: (String? value) {
+                              if(value?.isEmpty ?? true) {
+                                return '빈칸입니다. 사용할 이름을 입력해주세요.';
+                              }
+                            },
+                            onFieldSubmitted: (String value) {
+                              debugPrint("${value}");
+                            },
+                            decoration: InputDecoration(
+                              fillColor: AppColor.grey01F0,
+                              filled: true,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(10)
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              contentPadding: EdgeInsets.symmetric(vertical: 14, horizontal: 9),
+                            ),
+                          )
+                        )
+                      ],
+                    )
+                  ),
+                ),
+              ]
+            )
           )
         ],
       ),

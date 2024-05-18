@@ -77,7 +77,7 @@ class FindIdPage extends StatelessWidget {
                   height: 2,
                 ),
                 SizedBox(
-                  width: 325,
+                  width: 345,
                   child: Form(
                     autovalidateMode: AutovalidateMode.always,
                     key: formKeys[0],
@@ -152,7 +152,7 @@ class FindIdPage extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      width: 220,
+                      width: 247,
                       child: Form(
                         autovalidateMode: AutovalidateMode.always,
                         key: formKeys[1],
@@ -178,7 +178,7 @@ class FindIdPage extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.only(left: 10),
                         child: SizedBox(
-                          width: 85,
+                          width: 90,
                           height: 50,
                           child: ElevatedButton(
                             onPressed: null,

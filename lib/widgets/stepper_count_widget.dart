@@ -127,7 +127,7 @@ class StepperWidget extends State<StepperState> {
         children: [
           if (isFinally)
             _buildButton(
-              '로그인', () => Get.offAll(LoginPage()), AppColor.pink, 306, 0)
+              '로그인', () => Get.offAll(LoginPage()), AppColor.pink, 350, 0)
           else if (isActiveBack)
             _buildButton('이전', details.onStepCancel, Colors.white, 110, 108),
           if (isActiveNext && !isFinally)

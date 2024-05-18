@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:rollingmind_front/utils/colors.dart';
 import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
@@ -36,6 +37,11 @@ class SignUpPage extends StatelessWidget {
     }
 
     else if(StepperWidget.currentStep == 1 && idCheck) {
+      const storage = FlutterSecureStorage();
+      
+      storage.write(key: 'id', value: _idController.text);
+      storage.write(key: 'pw', value: _pwController.text);
+
       debugPrint("${_idController.text}");
       debugPrint("${_pwController.text}");
     }

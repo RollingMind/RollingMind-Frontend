@@ -518,6 +518,52 @@ class SignUpPage extends StatelessWidget {
                 )
               ]
             )
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 16),
+            alignment: Alignment.centerLeft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  '반갑습니다!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700, 
+                    fontSize: 20
+                  ),
+                ),
+                const Row(
+                  children: [
+                    Text(
+                      '응애뿅뺭삥',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                        color: AppColor.pink
+                      )
+                    ),
+                    Text(
+                      '님!',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      )
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 4
+                ),
+                const Text(
+                  '롤링마인드의 회원이 되셨습니다!\n로그인 화면으로 이동해 로그인을 진행해주세요.',
+                  style: TextStyle(
+                    color: AppColor.darkGrey8A,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500
+                  ),
+                )
+              ]
+            )
           )
         ],
       ),

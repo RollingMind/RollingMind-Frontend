@@ -70,8 +70,10 @@ class StepperWidget extends State<StepperState> {
     setState(() {
       if (currentStep < widgetList.length - 1 &&
           !(formKeys[currentStep].currentState?.validate() ?? false)) {
-        isActiveBack = false;
-        currentStep = 0;
+            if(currentStep == 0) {
+              isActiveBack = false;
+              currentStep = 0;
+            } else return;
       } else {
         addContinueStepFunction();
         currentStep += 1;

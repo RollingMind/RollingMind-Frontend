@@ -86,7 +86,7 @@ class FindPwPage extends StatelessWidget {
               SizedBox(
                 width: 345,
                 child: Form(
-                  autovalidateMode: AutovalidateMode.always,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   key: formKeys[0],
                   child: TextFormField(
                     controller: _idController,
@@ -153,18 +153,6 @@ class FindPwPage extends StatelessWidget {
                 ),
                 const SizedBox(
                   height: 56,
-                ),
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(5, 0, 0, 4),
-                  child: Text(
-                    '비밀번호',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500, fontSize: 14
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 2,
                 ),
                 Form(
                   key: formKeys[1],

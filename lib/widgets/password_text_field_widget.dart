@@ -54,8 +54,16 @@ class _PasswordFieldState extends State<PasswordField> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const Padding(
+            padding: EdgeInsets.fromLTRB(5, 0, 0, 4),
+            child: Text(
+              '비밀번호',
+              style: TextStyle(
+                fontWeight: FontWeight.w500, fontSize: 14),
+            ),
+          ),
           TextFormField(
-            autovalidateMode: AutovalidateMode.always,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.visiblePassword,
             obscureText: _obscured1,
             focusNode: textFieldFocusNode1,
@@ -67,6 +75,18 @@ class _PasswordFieldState extends State<PasswordField> {
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10)
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(10),
               ),
               contentPadding: EdgeInsets.all(8),
               suffixIcon: Padding(
@@ -90,7 +110,7 @@ class _PasswordFieldState extends State<PasswordField> {
             },
           ),
           const Padding(
-            padding: EdgeInsets.fromLTRB(5, 24, 0, 4),
+            padding: EdgeInsets.fromLTRB(5, 26, 0, 4),
             child: Text(
               '비밀번호 확인',
               style: TextStyle(
@@ -101,7 +121,7 @@ class _PasswordFieldState extends State<PasswordField> {
             height: 2,
           ),
           TextFormField(
-            autovalidateMode: AutovalidateMode.always,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.visiblePassword,
             obscureText: _obscured2,
             focusNode: textFieldFocusNode2,
@@ -113,6 +133,18 @@ class _PasswordFieldState extends State<PasswordField> {
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10)
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(10),
               ),
               contentPadding: EdgeInsets.all(8),
               suffixIcon: Padding(

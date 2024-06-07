@@ -66,14 +66,12 @@ class LoginPage extends StatelessWidget {
                   onTap: () async {
                     CustomResponse response = await AuthAPI()
                         .login(_idController.text, _pwController.text);
-
+                    Get.toNamed("/home");
                     if(!context.mounted) return;
                     if(!response.isSuccess) {
                       Get.snackbar("로그인 실패", response.message);
                       return;
                     }
-
-                    // Get.toNamed("/home");
                   },
                   child: SizedBox(
                     width: 260,

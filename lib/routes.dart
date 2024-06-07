@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:rollingmind_front/pages/auth/find_id_page.dart';
 import 'package:rollingmind_front/pages/auth/find_pw_page.dart';
+import 'package:rollingmind_front/pages/auth/home_page.dart';
 import 'package:rollingmind_front/pages/auth/login_page.dart';
 import 'package:rollingmind_front/pages/auth/signup_page.dart';
 
@@ -11,6 +12,7 @@ abstract class AppRoutes {
   static const signup = "/sign_up";
   static const findId = "/find_id";
   static const findPw = "/find_pw";
+  static const home = "/home";
 }
 
 abstract class AppPages {
@@ -21,5 +23,6 @@ abstract class AppPages {
     GetPage(name: AppRoutes.signup, page: () => SignUpPage()),
     GetPage(name: AppRoutes.findId, page: () => FindIdPage()),
     GetPage(name: AppRoutes.findPw, page: () => FindPwPage()),
+    GetPage(name: AppRoutes.home, page: () => HomePage())
   ];
 }

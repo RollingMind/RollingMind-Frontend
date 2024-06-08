@@ -1,28 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-import 'package:rollingmind_front/apis/auth_api.dart';
-import 'package:rollingmind_front/pages/auth/template_page.dart';
-import 'package:rollingmind_front/utils/colors.dart';
-import 'package:rollingmind_front/utils/response.dart';
-import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
-import 'package:rollingmind_front/widgets/login_text_field_widget.dart';
-import 'package:rollingmind_front/widgets/login_sns_button_widget.dart';
-
 import 'package:rollingmind_front/pages/auth/add_friends_page.dart';
-import 'package:rollingmind_front/pages/auth/template_page.dart';
 import 'package:rollingmind_front/pages/auth/fire_paper_page.dart';
+import 'package:rollingmind_front/pages/auth/template_page.dart';
 import 'package:rollingmind_front/pages/auth/my_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
   
-  static const String _title = 'Flutter Code Sample';
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
       home: MarketPage(),
     );
   }
@@ -44,11 +32,11 @@ class _MarketPageState extends State<MarketPage> {
   );
   
   final List<Widget> _widgetOptions = <Widget>[
-    FirePaperPage(),
-    AddFriendsPage(),
-    HomePage(),
-    TemplatePage(),
-    MyPage(), // 마이페이지 클래스 이름 수정
+    FirePaperPage(), // '지핫롤'
+    AddFriendsPage(), // '친구추가'
+    Container(), // '홈'
+    TemplatePage(), // '템플릿'
+    MyPage(), // '마이페이지'
   ];
 
   void _onItemTapped(int index) {
@@ -70,24 +58,26 @@ class _MarketPageState extends State<MarketPage> {
             label: '지핫롤',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('menu/fire.png')),
+            icon: ImageIcon(AssetImage('menu/addpeople.png')),
             label: '친구추가',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('menu/fire.png')),
+            icon: ImageIcon(AssetImage('menu/home.png')),
             label: '홈',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('menu/fire.png')),
+            icon: ImageIcon(AssetImage('menu/template.png')),
             label: '템플릿',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('menu/fire.png')),
+            icon: ImageIcon(AssetImage('menu/people.png')),
             label: '마이페이지',
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Color(0xFFFD928B),
+        unselectedItemColor: Colors.grey,
+        unselectedLabelStyle: TextStyle(color: Colors.grey),
         onTap: _onItemTapped,
       ),
     );
@@ -95,7 +85,6 @@ class _MarketPageState extends State<MarketPage> {
 
   @override
   void initState() {
-    // 해당 클래스가 호출되었을 때
     super.initState();
   }
 

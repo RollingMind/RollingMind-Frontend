@@ -8,13 +8,13 @@ import 'package:rollingmind_front/widgets/base_app_bar_widget.dart';
 import 'package:rollingmind_front/widgets/login_text_field_widget.dart';
 import 'package:rollingmind_front/widgets/login_sns_button_widget.dart';
 
-class TemplatePage extends StatelessWidget {
-  const TemplatePage({super.key});
+class HomePage2 extends StatelessWidget {
+  const HomePage2({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Text("template"),
+        child: Text('home'),
       ),
     );
   }

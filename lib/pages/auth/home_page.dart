@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:rollingmind_front/pages/auth/add_friends_page.dart';
 import 'package:rollingmind_front/pages/auth/fire_paper_page.dart';
+import 'package:rollingmind_front/pages/auth/home_page2.dart';
 import 'package:rollingmind_front/pages/auth/template_page.dart';
 import 'package:rollingmind_front/pages/auth/my_page.dart';
 
@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MarketPage(),
     );
   }
@@ -24,19 +24,14 @@ class MarketPage extends StatefulWidget {
 }
 
 class _MarketPageState extends State<MarketPage> {
- 
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(
-      fontSize: 30,
-      fontWeight: FontWeight.bold,
-  );
+  int _selectedIndex = 2;
   
-  final List<Widget> _widgetOptions = <Widget>[
+  List<Widget> body = const [
     FirePaperPage(), // '지핫롤'
     AddFriendsPage(), // '친구추가'
-    Container(), // '홈'
+    HomePage2(), // '홈'
     TemplatePage(), // '템플릿'
-    MyPage(), // '마이페이지'
+    MyPage() // '마이페이지'
   ];
 
   void _onItemTapped(int index) {
@@ -48,11 +43,18 @@ class _MarketPageState extends State<MarketPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: Center(
+        child: body[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        type: BottomNavigationBarType.fixed, // 선택된 버튼이 커지는 효과 제거
+        currentIndex: _selectedIndex,
+        onTap: (int newIndex) {
+          setState(() {
+            _selectedIndex = newIndex;
+          });
+        },
+        items: const [
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage('menu/fire.png')),
             label: '지핫롤',
@@ -74,11 +76,9 @@ class _MarketPageState extends State<MarketPage> {
             label: '마이페이지',
           ),
         ],
-        currentIndex: _selectedIndex,
         selectedItemColor: Color(0xFFFD928B),
         unselectedItemColor: Colors.grey,
         unselectedLabelStyle: TextStyle(color: Colors.grey),
-        onTap: _onItemTapped,
       ),
     );
   }

@@ -13,7 +13,9 @@ class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(),
+      body: SingleChildScrollView(
+        child: Text('my page'),
+      ),
     );
   }
 }
